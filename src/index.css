@@ -4,7 +4,7 @@
   --secondaryColor: #fba905;
   --secondaryAltColor: #f1a000;
   --bgColor: #fff;
-  --darkColor: #141618;
+  --darkColor: #272a2e;
   --textColor: #262628;
   --textAltColor: #5c5e60;
   --borderColor: #ebebeb;
@@ -34,8 +34,11 @@ body {
 }
 
 input,
-textarea {
+textarea,
+button {
   border: none;
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeBody);
 }
 
 input:focus,
@@ -51,4 +54,10 @@ h5,
 h6 {
   font-family: var(--fontHeading);
   margin: 0;
+}
+
+img,
+video {
+  display: block;
+  width: 100%;
 }
