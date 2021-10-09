@@ -3,13 +3,18 @@
   --primaryAltColor: #006dc6;
   --secondaryColor: #fba905;
   --secondaryAltColor: #f1a000;
-  --bgColor: rgb(235, 235, 235);
+  --bgColor: #fff;
   --darkColor: #141618;
   --textColor: #262628;
   --textAltColor: #5c5e60;
   --borderColor: #ebebeb;
   --fontHeading: "Inter", sans-serif;
   --fontBody: "Inter", sans-serif;
+  --fontSizeSmall: 14px;
+  --fontSizeBody: 16px;
+  --fontSizeMedium: 20px;
+  --fontSizeHeading: 25px;
+  --fontSizeBig: 45px;
 }
 
 *,
@@ -23,8 +28,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bgColor);
   font-family: var(--fontBody);
-  margin: 0;
   color: var(--textColor);
+  font-size: var(--fontSizeBody);
+  margin: 0;
 }
 
 input,
@@ -44,4 +50,5 @@ h4,
 h5,
 h6 {
   font-family: var(--fontHeading);
+  margin: 0;
 }
