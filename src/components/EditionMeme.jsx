@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Button from "./Button";
 
 const WrapperEditionMeme = styled.div`
-  /* background-color: var(--darkColor); */
   border-left: 2px solid #ddd;
   padding: 2rem;
 
@@ -24,13 +23,23 @@ const Title = styled.h4`
   font-size: var(--fontSizeMedium);
 `;
 
-function EditionMeme() {
+function EditionMeme({ textTop, textBottom, setTextTop, setTextBottom }) {
   return (
     <WrapperEditionMeme>
       <div>
         <Title>Edit the text</Title>
-        <Input type="text" placeholder="Text top here ..." />
-        <Input type="text" placeholder="Text bottom here ..." />
+        <Input
+          value={textTop}
+          onChange={setTextTop}
+          type="text"
+          placeholder="Text top here ..."
+        />
+        <Input
+          value={textBottom}
+          onChange={setTextBottom}
+          type="text"
+          placeholder="Text bottom here ..."
+        />
       </div>
 
       <Button>Download</Button>

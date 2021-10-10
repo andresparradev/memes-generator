@@ -2,11 +2,11 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const MEMES = [
-  "https://imgflip.com/s/meme/Distracted-Boyfriend.jpg",
-  "https://imgflip.com/s/meme/Epic-Handshake.jpg",
-  "https://imgflip.com/s/meme/Roll-Safe-Think-About-It.jpg",
-  "https://imgflip.com/s/meme/Ancient-Aliens.jpg",
-  "https://imgflip.com/s/meme/Hide-the-Pain-Harold.jpg",
+  { img: "https://imgflip.com/s/meme/Distracted-Boyfriend.jpg", id: 0 },
+  { img: "https://imgflip.com/s/meme/Epic-Handshake.jpg", id: 1 },
+  { img: "https://imgflip.com/s/meme/Roll-Safe-Think-About-It.jpg", id: 2 },
+  { img: "https://imgflip.com/s/meme/Ancient-Aliens.jpg", id: 3 },
+  { img: "https://imgflip.com/s/meme/Hide-the-Pain-Harold.jpg", id: 4 },
 ];
 
 const WrapperSelectMeme = styled.div`
@@ -16,14 +16,27 @@ const WrapperSelectMeme = styled.div`
   gap: 1rem;
 `;
 
-function SelectMeme() {
+const Input = styled.input`
+  display: none;
+`;
+
+function SelectMeme({ handleChangeMeme }) {
   const [memes, setMemes] = useState(MEMES);
 
   return (
     <WrapperSelectMeme>
       {memes.map((singleMeme) => (
-        <div key={singleMeme}>
-          <img src={singleMeme} />
+        <div key={singleMeme.id}>
+          <label htmlFor={`meme-${singleMeme.id}`}>
+            <img src={singleMeme.img} />
+          </label>
+          <Input
+            onChange={handleChangeMeme}
+            type="radio"
+            name="meme-value"
+            value={singleMeme.img}
+            id={`meme-${singleMeme.id}`}
+          />
         </div>
       ))}
     </WrapperSelectMeme>
