@@ -6,13 +6,17 @@ import useEditor from "../hooks/useEditor";
 
 const WrapperEditor = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  height: 90vh;
+  grid-template-columns: 1fr;
   overflow: hidden;
   margin: 0 2em 3em 2em;
   background-color: var(--borderColor);
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 960px) {
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 90vh;
+  }
 `;
 
 function Editor() {

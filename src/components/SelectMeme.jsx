@@ -10,9 +10,27 @@ const MEMES = [
 
 const WrapperSelectMeme = styled.div`
   height: 100%;
-  overflow-y: scroll;
-  display: grid;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
   gap: 1rem;
+  margin-bottom: 2em;
+  padding: 1em;
+
+  img {
+    max-width: 100px;
+  }
+
+  @media screen and (min-width: 960px) {
+    flex-direction: column;
+    margin-bottom: 0;
+    overflow-y: scroll;
+    padding: 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
 `;
 
 const Input = styled.input`
