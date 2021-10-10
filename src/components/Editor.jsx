@@ -1,8 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
 import PreviewMeme from "./PreviewMeme";
 import SelectMeme from "./SelectMeme";
 import EditionMeme from "./EditionMeme";
+import useEditor from "../hooks/useEditor";
 
 const WrapperEditor = styled.div`
   display: grid;
@@ -16,31 +16,32 @@ const WrapperEditor = styled.div`
 `;
 
 function Editor() {
-  const [memeImage, setMemeImage] = useState();
-  const [textTop, setTextTop] = useState("Top text");
-  const [textBottom, setTextBottom] = useState("Bottom text");
-
-  const handleChangeMeme = (e) => {
-    setMemeImage(e.target.value);
-  };
-
-  const handleChangeTextTop = (e) => {
-    setTextTop(e.target.value);
-  };
-
-  const handleChangeTextBottom = (e) => {
-    setTextBottom(e.target.value);
-  };
+  const {
+    memeImage,
+    memeRef,
+    textTop,
+    textBottom,
+    handleChangeMeme,
+    handleChangeTextTop,
+    handleChangeTextBottom,
+    handleDownload,
+  } = useEditor();
 
   return (
     <WrapperEditor>
       <SelectMeme handleChangeMeme={handleChangeMeme} />
-      <PreviewMeme meme={memeImage} textTop={textTop} textBottom={textBottom} />
+      <PreviewMeme
+        meme={memeImage}
+        textTop={textTop}
+        textBottom={textBottom}
+        memeRef={memeRef}
+      />
       <EditionMeme
         textTop={textTop}
         textBottom={textBottom}
         setTextTop={handleChangeTextTop}
         setTextBottom={handleChangeTextBottom}
+        handleDownload={handleDownload}
       />
     </WrapperEditor>
   );
