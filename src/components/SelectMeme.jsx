@@ -2,10 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const MEMES = [
-  { img: "./src/assets/fire.jpg", id: 0 },
-  { img: "./src/assets/futurama.jpg", id: 1 },
-  { img: "./src/assets/history.jpg", id: 2 },
-  { img: "./src/assets/philosoraptor.jpg", id: 3 },
+  { img: `/assets/fire.jpg`, id: 0 },
+  { img: `/assets/futurama.jpg`, id: 1 },
+  { img: `/assets/history.jpg`, id: 2 },
+  { img: `/assets/philosoraptor.jpg`, id: 3 },
 ];
 
 const WrapperSelectMeme = styled.div`
