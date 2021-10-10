@@ -19,8 +19,8 @@ const WrapperButton = styled.button`
   }
 `;
 
-function Button({ children, color = "primary" }) {
-  return <WrapperButton color={color}>{children}</WrapperButton>;
+function Button(props, { color = "primary" }) {
+  return <WrapperButton color={color} {...props} />;
 }
 
 export default Button;

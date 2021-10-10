@@ -8,7 +8,7 @@ const WrapperPreviewMeme = styled.div`
 
 const Meme = styled.div`
   position: relative;
-  width: 80%;
+  width: 100%;
   max-width: 350px;
 
   p {
@@ -25,11 +25,6 @@ const Meme = styled.div`
   }
 `;
 
-const ImgMeme = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
 const TextTop = styled.p`
   top: 0;
 `;
@@ -39,14 +34,15 @@ const TextBottom = styled.p`
 `;
 
 function PreviewMeme({
-  meme = "https://imgflip.com/s/meme/Ancient-Aliens.jpg",
+  meme = "./src/assets/fire.jpg",
   textTop = "Hello",
   textBottom = "World",
+  memeRef,
 }) {
   return (
     <WrapperPreviewMeme>
-      <Meme>
-        <ImgMeme src={meme} />
+      <Meme ref={memeRef}>
+        <img src={meme} />
         <TextTop>{textTop}</TextTop>
         <TextBottom>{textBottom}</TextBottom>
       </Meme>

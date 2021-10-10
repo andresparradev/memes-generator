@@ -23,7 +23,13 @@ const Title = styled.h4`
   font-size: var(--fontSizeMedium);
 `;
 
-function EditionMeme({ textTop, textBottom, setTextTop, setTextBottom }) {
+function EditionMeme({
+  textTop,
+  textBottom,
+  setTextTop,
+  setTextBottom,
+  handleDownload,
+}) {
   return (
     <WrapperEditionMeme>
       <div>
@@ -42,7 +48,7 @@ function EditionMeme({ textTop, textBottom, setTextTop, setTextBottom }) {
         />
       </div>
 
-      <Button>Download</Button>
+      <Button onClick={handleDownload}>Download</Button>
     </WrapperEditionMeme>
   );
 }

@@ -2,11 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const MEMES = [
-  { img: "https://imgflip.com/s/meme/Distracted-Boyfriend.jpg", id: 0 },
-  { img: "https://imgflip.com/s/meme/Epic-Handshake.jpg", id: 1 },
-  { img: "https://imgflip.com/s/meme/Roll-Safe-Think-About-It.jpg", id: 2 },
-  { img: "https://imgflip.com/s/meme/Ancient-Aliens.jpg", id: 3 },
-  { img: "https://imgflip.com/s/meme/Hide-the-Pain-Harold.jpg", id: 4 },
+  { img: "./src/assets/fire.jpg", id: 0 },
+  { img: "./src/assets/futurama.jpg", id: 1 },
+  { img: "./src/assets/history.jpg", id: 2 },
+  { img: "./src/assets/philosoraptor.jpg", id: 3 },
 ];
 
 const WrapperSelectMeme = styled.div`
