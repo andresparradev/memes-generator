@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const WrapperHeader = styled.header`
   padding: 1em 2em;
@@ -6,11 +7,6 @@ const WrapperHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--borderColor);
-`;
-
-const Logo = styled.h1`
-  margin: 0;
-  font-size: var(--fontSizeHeading);
 `;
 
 function Header() {
