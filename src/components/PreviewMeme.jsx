@@ -34,7 +34,7 @@ const TextBottom = styled.p`
 `;
 
 function PreviewMeme({
-  meme = "./src/assets/fire.jpg",
+  meme = "/assets/fire.jpg",
   textTop = "Hello",
   textBottom = "World",
   memeRef,
