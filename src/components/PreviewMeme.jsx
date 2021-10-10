@@ -11,12 +11,9 @@ const Meme = styled.div`
   width: 80%;
   max-width: 350px;
 
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
   p {
+    text-align: center;
+    width: 100%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -28,12 +25,17 @@ const Meme = styled.div`
   }
 `;
 
+const ImgMeme = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 const TextTop = styled.p`
-  top: 0.5em;
+  top: 0;
 `;
 
 const TextBottom = styled.p`
-  bottom: 0.5em;
+  bottom: 0;
 `;
 
 function PreviewMeme({
@@ -44,7 +46,7 @@ function PreviewMeme({
   return (
     <WrapperPreviewMeme>
       <Meme>
-        <img src={meme} />
+        <ImgMeme src={meme} />
         <TextTop>{textTop}</TextTop>
         <TextBottom>{textBottom}</TextBottom>
       </Meme>

@@ -17,14 +17,31 @@ const WrapperEditor = styled.div`
 
 function Editor() {
   const [memeImage, setMemeImage] = useState();
-  const [textTop, setTextTop] = useState("");
-  const [textBottom, setTextBottom] = useState("");
+  const [textTop, setTextTop] = useState("Top text");
+  const [textBottom, setTextBottom] = useState("Bottom text");
+
+  const handleChangeMeme = (e) => {
+    setMemeImage(e.target.value);
+  };
+
+  const handleChangeTextTop = (e) => {
+    setTextTop(e.target.value);
+  };
+
+  const handleChangeTextBottom = (e) => {
+    setTextBottom(e.target.value);
+  };
 
   return (
     <WrapperEditor>
-      <SelectMeme />
-      <PreviewMeme />
-      <EditionMeme />
+      <SelectMeme handleChangeMeme={handleChangeMeme} />
+      <PreviewMeme meme={memeImage} textTop={textTop} textBottom={textBottom} />
+      <EditionMeme
+        textTop={textTop}
+        textBottom={textBottom}
+        setTextTop={handleChangeTextTop}
+        setTextBottom={handleChangeTextBottom}
+      />
     </WrapperEditor>
   );
 }
