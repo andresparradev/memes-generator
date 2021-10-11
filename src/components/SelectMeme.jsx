@@ -23,8 +23,9 @@ const WrapperSelectMeme = styled.div`
 
   @media screen and (min-width: 960px) {
     flex-direction: column;
+    justify-content: flex-start;
     margin-bottom: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 0;
 
     img {
