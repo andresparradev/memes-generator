@@ -12,3 +12,10 @@
 1. Clone the repo
 2. Install the dependencies `npm install or yarn install`
 3. Run in development mode `npm run dev`
+
+## Todo
+
+- [ ] Dark Mode
+- [ ] Upload your own images
+- [ ] Be able to move the text anywhere
+- [ ] Be able to customize the text
