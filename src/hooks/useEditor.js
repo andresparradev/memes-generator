@@ -1,26 +1,12 @@
-import { useState, useRef } from "react";
 import { toPng } from "html-to-image";
+import { useContext } from "react";
+import { EditorContext } from "../context/editorContext";
 
 function useEditor() {
-  const [memeImage, setMemeImage] = useState();
-  const [textTop, setTextTop] = useState("Top text");
-  const [textBottom, setTextBottom] = useState("Bottom text");
-  const memeRef = useRef();
+  const context = useContext(EditorContext);
 
-  const handleChangeMeme = (e) => {
-    setMemeImage(e.target.value);
-  };
-
-  const handleChangeTextTop = (e) => {
-    setTextTop(e.target.value);
-  };
-
-  const handleChangeTextBottom = (e) => {
-    setTextBottom(e.target.value);
-  };
-
-  const handleDownload = () => {
-    toPng(memeRef.current)
+  const downloadMeme = () => {
+    toPng(context.memeRef.current)
       .then((dataUrl) => {
         const imageLink = document.createElement("a");
         imageLink.download = "meme.png";
@@ -33,14 +19,8 @@ function useEditor() {
   };
 
   return {
-    memeImage,
-    memeRef,
-    textTop,
-    textBottom,
-    handleChangeMeme,
-    handleChangeTextTop,
-    handleChangeTextBottom,
-    handleDownload,
+    ...context,
+    downloadMeme,
   };
 }
 

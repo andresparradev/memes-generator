@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useEditor from "../hooks/useEditor";
 
 const WrapperPreviewMeme = styled.div`
   display: flex;
@@ -33,12 +34,9 @@ const TextBottom = styled.p`
   bottom: 0;
 `;
 
-function PreviewMeme({
-  meme = "/assets/fire.jpg",
-  textTop = "Hello",
-  textBottom = "World",
-  memeRef,
-}) {
+function PreviewMeme() {
+  const { meme, textTop, textBottom, memeRef } = useEditor();
+
   return (
     <WrapperPreviewMeme>
       <Meme ref={memeRef}>

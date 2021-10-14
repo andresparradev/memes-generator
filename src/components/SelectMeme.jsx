@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import useEditor from "../hooks/useEditor";
 
 const MEMES = [
   { img: `/assets/fire.jpg`, id: 0 },
@@ -38,8 +39,11 @@ const Input = styled.input`
   display: none;
 `;
 
-function SelectMeme({ handleChangeMeme }) {
+function SelectMeme() {
   const [memes, setMemes] = useState(MEMES);
+  const { setMeme } = useEditor();
+
+  const handleChangeMeme = (e) => setMeme(e.target.value);
 
   return (
     <WrapperSelectMeme>

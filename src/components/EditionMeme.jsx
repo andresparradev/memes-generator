@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useEditor from "../hooks/useEditor";
 import Button from "./Button";
 
 const WrapperEditionMeme = styled.div`
@@ -23,26 +24,29 @@ const Title = styled.h4`
   font-size: var(--fontSizeMedium);
 `;
 
-function EditionMeme({
-  textTop,
-  textBottom,
-  setTextTop,
-  setTextBottom,
-  handleDownload,
-}) {
+function EditionMeme() {
+  const { textTop, textBottom, setTextTop, setTextBottom, downloadMeme } =
+    useEditor();
+
+  const handleChangeTextTop = (e) => setTextTop(e.target.value);
+
+  const handleChangeTextBottom = (e) => setTextBottom(e.target.value);
+
+  const handleDownload = () => downloadMeme();
+
   return (
     <WrapperEditionMeme>
       <div>
         <Title>Edit the text</Title>
         <Input
           value={textTop}
-          onChange={setTextTop}
+          onChange={handleChangeTextTop}
           type="text"
           placeholder="Text top here ..."
         />
         <Input
           value={textBottom}
-          onChange={setTextBottom}
+          onChange={handleChangeTextBottom}
           type="text"
           placeholder="Text bottom here ..."
         />

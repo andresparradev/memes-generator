@@ -2,7 +2,6 @@ import styled from "styled-components";
 import PreviewMeme from "./PreviewMeme";
 import SelectMeme from "./SelectMeme";
 import EditionMeme from "./EditionMeme";
-import useEditor from "../hooks/useEditor";
 
 const WrapperEditor = styled.div`
   display: grid;
@@ -20,33 +19,11 @@ const WrapperEditor = styled.div`
 `;
 
 function Editor() {
-  const {
-    memeImage,
-    memeRef,
-    textTop,
-    textBottom,
-    handleChangeMeme,
-    handleChangeTextTop,
-    handleChangeTextBottom,
-    handleDownload,
-  } = useEditor();
-
   return (
     <WrapperEditor>
-      <SelectMeme handleChangeMeme={handleChangeMeme} />
-      <PreviewMeme
-        meme={memeImage}
-        textTop={textTop}
-        textBottom={textBottom}
-        memeRef={memeRef}
-      />
-      <EditionMeme
-        textTop={textTop}
-        textBottom={textBottom}
-        setTextTop={handleChangeTextTop}
-        setTextBottom={handleChangeTextBottom}
-        handleDownload={handleDownload}
-      />
+      <SelectMeme />
+      <PreviewMeme />
+      <EditionMeme />
     </WrapperEditor>
   );
 }

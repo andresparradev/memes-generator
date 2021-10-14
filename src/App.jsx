@@ -1,13 +1,16 @@
 import Editor from "./components/Editor";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import EditorProvider from "./context/editorContext";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Hero />
-      <Editor />
+      <EditorProvider>
+        <Header />
+        <Hero />
+        <Editor />
+      </EditorProvider>
     </div>
   );
 }
