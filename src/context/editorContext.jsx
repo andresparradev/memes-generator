@@ -7,6 +7,10 @@ export default function EditorProvider({ children }) {
   const memeRef = useRef();
   const [textTop, setTextTop] = useState("Hello");
   const [textBottom, setTextBottom] = useState("World");
+  const [optionsMeme, setOptionsMeme] = useState({
+    fontFamily: "Arial",
+    fontSize: 32,
+  });
 
   const value = useMemo(() => {
     return {
@@ -17,8 +21,10 @@ export default function EditorProvider({ children }) {
       setTextTop,
       textBottom,
       setTextBottom,
+      optionsMeme,
+      setOptionsMeme,
     };
-  }, [meme, textTop, textBottom]);
+  }, [meme, textTop, textBottom, optionsMeme]);
 
   return (
     <EditorContext.Provider value={value}>{children}</EditorContext.Provider>

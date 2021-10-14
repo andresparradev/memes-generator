@@ -24,13 +24,65 @@ const Title = styled.h4`
   font-size: var(--fontSizeMedium);
 `;
 
+const EditionFont = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+const Subtitle = styled.h5`
+  margin: 1rem 0;
+  font-size: var(--fontSizeBody);
+`;
+
+const Select = styled.select`
+  width: 100%;
+  padding: 0.5rem 1em;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background-color: #ddd;
+  border: none;
+`;
+
+const FONT_FAMILYS = [
+  "Arial",
+  "Inter",
+  "Pacifico",
+  "Bebas Neue",
+  "IM Fell English SC",
+  "Serif",
+];
+
 function EditionMeme() {
-  const { textTop, textBottom, setTextTop, setTextBottom, downloadMeme } =
-    useEditor();
+  const {
+    textTop,
+    textBottom,
+    setTextTop,
+    setTextBottom,
+    downloadMeme,
+    setOptionsMeme,
+  } = useEditor();
 
   const handleChangeTextTop = (e) => setTextTop(e.target.value);
 
   const handleChangeTextBottom = (e) => setTextBottom(e.target.value);
+
+  const handleChangeFontType = (e) => {
+    setOptionsMeme((prev) => {
+      return {
+        ...prev,
+        fontFamily: e.target.value,
+      };
+    });
+  };
+
+  const handleChangeFontSize = (e) => {
+    setOptionsMeme((prev) => {
+      return {
+        ...prev,
+        fontSize: e.target.value,
+      };
+    });
+  };
 
   const handleDownload = () => downloadMeme();
 
@@ -50,6 +102,23 @@ function EditionMeme() {
           type="text"
           placeholder="Text bottom here ..."
         />
+
+        <Subtitle>Font style</Subtitle>
+        <EditionFont>
+          <Select onChange={handleChangeFontType} defaultValue="Arial">
+            {FONT_FAMILYS.map((singleFont) => (
+              <option key={singleFont} value={singleFont}>
+                {singleFont}
+              </option>
+            ))}
+          </Select>
+
+          <Input
+            type="number"
+            defaultValue="32"
+            onChange={handleChangeFontSize}
+          />
+        </EditionFont>
       </div>
 
       <Button onClick={handleDownload}>Download</Button>

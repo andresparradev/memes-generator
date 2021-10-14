@@ -18,7 +18,8 @@ const Meme = styled.div`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: var(--fontSizeHeading);
+    font-family: ${(props) => props.optionsMeme.fontFamily};
+    font-size: ${(props) => props.optionsMeme.fontSize}px;
     font-weight: bold;
     color: #fff;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
@@ -35,11 +36,11 @@ const TextBottom = styled.p`
 `;
 
 function PreviewMeme() {
-  const { meme, textTop, textBottom, memeRef } = useEditor();
+  const { meme, textTop, textBottom, memeRef, optionsMeme } = useEditor();
 
   return (
     <WrapperPreviewMeme>
-      <Meme ref={memeRef}>
+      <Meme ref={memeRef} optionsMeme={optionsMeme}>
         <img src={meme} />
         <TextTop>{textTop}</TextTop>
         <TextBottom>{textBottom}</TextBottom>
