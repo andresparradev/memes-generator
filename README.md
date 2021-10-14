@@ -19,3 +19,5 @@
 - [ ] Upload your own images
 - [ ] Be able to move the text anywhere
 - [ ] Be able to customize the text
+- [ ] Add auth
+- [ ] Add list of last created memes
