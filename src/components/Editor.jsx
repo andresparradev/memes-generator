@@ -2,6 +2,8 @@ import styled from "styled-components";
 import PreviewMeme from "./PreviewMeme";
 import SelectMeme from "./SelectMeme";
 import EditionMeme from "./EditionMeme";
+import UploadFile from "./UploadFile";
+import { useState } from "react";
 
 const WrapperEditor = styled.div`
   display: grid;
@@ -19,11 +21,22 @@ const WrapperEditor = styled.div`
 `;
 
 function Editor() {
+  const [isOpenUpload, setIsOpenUpload] = useState(false);
+
+  const openUploadModal = () => {
+    setIsOpenUpload(true);
+  }
+
+  const closeUploadModal = () => {
+    setIsOpenUpload(false);
+  }
+
   return (
     <WrapperEditor>
-      <SelectMeme />
+      <SelectMeme openUploadModal={openUploadModal} />
       <PreviewMeme />
       <EditionMeme />
+      { isOpenUpload && <UploadFile closeUploadModal={closeUploadModal} /> }
     </WrapperEditor>
   );
 }

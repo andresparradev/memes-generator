@@ -17,16 +17,6 @@ const WrapperSelectMeme = styled.div`
   margin-bottom: 2em;
   padding: 1em;
 
-  img {
-    cursor: pointer;
-    max-width: 100px;
-    transition: border 100ms;
-
-    &:hover {
-      border: 5px solid var(--secondaryColor);
-    }
-  }
-
   @media screen and (min-width: 960px) {
     flex-direction: column;
     justify-content: flex-start;
@@ -40,11 +30,42 @@ const WrapperSelectMeme = styled.div`
   }
 `;
 
+const MemeImg = styled.img`
+  cursor: pointer;
+  max-width: 100px;
+  transition: border 100ms;
+
+  &:hover {
+    border: 5px solid var(--secondaryColor);
+  }
+`
+
+const AddImage = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfdfdf;
+  padding: 0 1.5rem;
+  height: 100px;
+
+  img {
+    cursor: pointer;
+    margin: 0 auto;
+    width: 50px;
+  }
+
+  @media screen and (min-width: 960px) {
+    padding: 4rem 0;
+    height: 250px;
+  }
+`
+
 const Input = styled.input`
   display: none;
 `;
 
-function SelectMeme() {
+function SelectMeme({ openUploadModal }) {
   const [memes, setMemes] = useState(MEMES);
   const { setMeme } = useEditor();
 
@@ -52,10 +73,13 @@ function SelectMeme() {
 
   return (
     <WrapperSelectMeme>
+      <AddImage onClick={openUploadModal}>
+        <img src="/assets/icon-add.png" alt="Logo add meme" title="Add image" />
+      </AddImage>
       {memes.map((singleMeme) => (
         <div key={singleMeme.id}>
           <label htmlFor={`meme-${singleMeme.id}`}>
-            <img src={singleMeme.img} />
+            <MemeImg src={singleMeme.img} />
           </label>
           <Input
             onChange={handleChangeMeme}
