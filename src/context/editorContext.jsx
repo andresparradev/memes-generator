@@ -9,7 +9,7 @@ export default function EditorProvider({ children }) {
   const [textBottom, setTextBottom] = useState("World");
   const [optionsMeme, setOptionsMeme] = useState({
     fontFamily: "Arial",
-    fontSize: 32,
+    fontSize: 36,
   });
 
   const value = useMemo(() => {

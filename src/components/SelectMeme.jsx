@@ -14,12 +14,17 @@ const WrapperSelectMeme = styled.div`
   overflow-x: auto;
   display: flex;
   justify-content: center;
-  gap: 1rem;
   margin-bottom: 2em;
   padding: 1em;
 
   img {
+    cursor: pointer;
     max-width: 100px;
+    transition: border 100ms;
+
+    &:hover {
+      border: 5px solid var(--secondaryColor);
+    }
   }
 
   @media screen and (min-width: 960px) {

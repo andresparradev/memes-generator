@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Draggable from 'react-draggable';
 import useEditor from "../hooks/useEditor";
 
 const WrapperPreviewMeme = styled.div`
@@ -11,16 +12,17 @@ const Meme = styled.div`
   position: relative;
   width: 100%;
   max-width: 350px;
-
+  overflow: hidden;
+  
   p {
-    text-align: center;
-    width: 100%;
+    margin: 0;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    cursor: pointer;
+    width: 100%;
     font-family: ${(props) => props.optionsMeme.fontFamily};
     font-size: ${(props) => props.optionsMeme.fontSize}px;
     font-weight: bold;
+    text-align: center;
     color: #fff;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
       1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
@@ -28,12 +30,12 @@ const Meme = styled.div`
 `;
 
 const TextTop = styled.p`
-  top: 0;
-`;
+  top: 20px;
+`
 
 const TextBottom = styled.p`
-  bottom: 0;
-`;
+  bottom: 20px;
+`
 
 function PreviewMeme() {
   const { meme, textTop, textBottom, memeRef, optionsMeme } = useEditor();
@@ -42,8 +44,14 @@ function PreviewMeme() {
     <WrapperPreviewMeme>
       <Meme ref={memeRef} optionsMeme={optionsMeme}>
         <img src={meme} />
-        <TextTop>{textTop}</TextTop>
-        <TextBottom>{textBottom}</TextBottom>
+
+        <Draggable>
+          <TextTop>{textTop}</TextTop>
+        </Draggable>
+
+        <Draggable>
+          <TextBottom>{textBottom}</TextBottom>
+        </Draggable>
       </Meme>
     </WrapperPreviewMeme>
   );
