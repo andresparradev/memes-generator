@@ -10,7 +10,6 @@ const MEMES = [
 ];
 
 const WrapperSelectMeme = styled.div`
-  height: 100%;
   overflow-x: auto;
   display: flex;
   justify-content: center;
@@ -46,13 +45,13 @@ const AddImage = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #dfdfdf;
-  padding: 0 1.5rem;
-  height: 100px;
+  height: 100%;
+  padding: 0 1rem;
 
   img {
     cursor: pointer;
     margin: 0 auto;
-    width: 50px;
+    width: 40px;
   }
 
   @media screen and (min-width: 960px) {
