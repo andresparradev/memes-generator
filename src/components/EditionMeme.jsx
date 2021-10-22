@@ -3,7 +3,7 @@ import useEditor from "../hooks/useEditor";
 import Button from "./Button";
 
 const WrapperEditionMeme = styled.div`
-  border-left: 2px solid #ddd;
+  border-left: 2px solid ${(props) => props.theme.colors.border};
   padding: 2rem;
 
   display: flex;
@@ -16,7 +16,8 @@ const Input = styled.input`
   padding: 0.5rem 1em;
   margin-bottom: 1rem;
   border-radius: 5px;
-  background-color: #ddd;
+  color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.border};
 `;
 
 const Title = styled.h4`
@@ -39,8 +40,9 @@ const Select = styled.select`
   padding: 0.5rem 1em;
   margin-bottom: 1rem;
   border-radius: 5px;
-  background-color: #ddd;
   border: none;
+  color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.border};
 `;
 
 const FONT_FAMILYS = [

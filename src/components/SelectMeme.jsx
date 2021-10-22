@@ -37,14 +37,14 @@ const MemeImg = styled.img`
   &:hover {
     border: 5px solid var(--secondaryColor);
   }
-`
+`;
 
 const AddImage = styled.div`
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #dfdfdf;
+  background-color: ${(props) => props.theme.colors.border};
   height: 100%;
   padding: 0 1rem;
 
@@ -58,7 +58,7 @@ const AddImage = styled.div`
     padding: 4rem 0;
     height: 250px;
   }
-`
+`;
 
 const Input = styled.input`
   display: none;

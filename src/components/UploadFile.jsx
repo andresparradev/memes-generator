@@ -1,11 +1,11 @@
-import styled from "styled-components"
-import useEditor from "../hooks/useEditor"
+import styled from "styled-components";
+import useEditor from "../hooks/useEditor";
 import Button from "./Button";
 
 const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, .9);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -15,12 +15,13 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.background};
   width: 90%;
   max-width: 400px;
   padding: 2rem;
   position: relative;
   border-radius: 5px;
+  color: ${(props) => props.theme.colors.textColor};
 `;
 
 const IconClose = styled.button`
@@ -60,16 +61,16 @@ function UploadFile({ closeUploadModal }) {
     reader.onloadend = () => {
       setMeme(reader.result);
       closeUploadModal();
-    }
+    };
 
     reader.readAsDataURL(file);
-  }
+  };
 
   const handleCloseModal = (e) => {
-    if(e.target.className.includes("wrapper")) {
+    if (e.target.className.includes("wrapper")) {
       closeUploadModal();
     }
-  }
+  };
 
   return (
     <Wrapper onClick={handleCloseModal} className="wrapper">
@@ -85,7 +86,7 @@ function UploadFile({ closeUploadModal }) {
       </Content>
       <IconClose onClick={closeUploadModal}>x</IconClose>
     </Wrapper>
-  )
+  );
 }
 
-export default UploadFile
+export default UploadFile;

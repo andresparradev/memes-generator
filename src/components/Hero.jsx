@@ -9,15 +9,15 @@ const WrapperHero = styled.section`
 `;
 
 const Title = styled.h2`
-  font-size: var(--fontSizeBig);
+  font-size: ${props => props.theme.font.sizeBig};
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
 `;
 
 const SubTitle = styled.h3`
-  font-size: var(--fontSizeMedium);
-  color: var(--textAltColor);
+  font-size: ${props => props.theme.font.sizeMedium};
+  color: ${props => props.theme.colors.textAlt};
   text-align: center;
   font-weight: 300;
 `;
