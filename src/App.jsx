@@ -1,10 +1,10 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Editor from "./components/Editor";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import EditorProvider from "./context/editorContext";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import useDarkMode from "./hooks/useDarkMode";
 import theme from "./theme";
-import { useState } from "react";
+
+import Home from "./pages/Home";
+import Editor from "./pages/Editor";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -17,23 +17,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [mode, setMode] = useState("light");
-
-  const toggleMode = () => {
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-  };
+  const { mode } = useDarkMode();
 
   return (
-    <ThemeProvider theme={theme(mode)}>
-      <div>
+    <BrowserRouter>
+      <ThemeProvider theme={theme(mode)}>
         <GlobalStyle />
-        <EditorProvider>
-          <Header toggleMode={toggleMode} />
-          <Hero />
-          <Editor />
-        </EditorProvider>
-      </div>
-    </ThemeProvider>
+        <Switch>
+          <Route path="/" component={Home} exact></Route>
+          <Route path="/editor" component={Editor}></Route>
+        </Switch>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "./Logo";
 import Button from "./Button";
+import useDarkMode from "../hooks/useDarkMode";
 
 const WrapperHeader = styled.header`
   padding: 1em 2em;
@@ -10,10 +12,14 @@ const WrapperHeader = styled.header`
   border-bottom: 2px solid ${(props) => props.theme.colors.border};
 `;
 
-function Header({ toggleMode }) {
+function Header() {
+  const { toggleMode } = useDarkMode();
+
   return (
     <WrapperHeader>
-      <Logo>MemesGenerator</Logo>
+      <Link to="/">
+        <Logo>MemesGenerator</Logo>
+      </Link>
       <Button color="dark" onClick={toggleMode}>
         Dark Mode
       </Button>

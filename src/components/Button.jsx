@@ -6,8 +6,10 @@ const WrapperButton = styled.button`
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors[props.color]};
   color: ${(props) => (props.color === "light" ? "#000" : "#fff")};
-  
-  ${props => props.rounded && `
+
+  ${(props) =>
+    props.rounded &&
+    `
     padding: 0;
     width: 50px;
     height: 50px;
@@ -19,7 +21,7 @@ const WrapperButton = styled.button`
   }
 `;
 
-function Button(props, { color = "primary", rounded = false}) {
+function Button(props, { color = "primary", rounded = false }) {
   return <WrapperButton color={color} rounded={rounded} {...props} />;
 }
 
