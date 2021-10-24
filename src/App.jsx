@@ -5,8 +5,15 @@ import theme from "./theme";
 
 import Home from "./pages/Home";
 import Editor from "./pages/Editor";
+import Discover from "./pages/Discover";
 
 const GlobalStyle = createGlobalStyle`
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     background-color: ${(props) => props.theme.colors.background};
@@ -24,8 +31,9 @@ function App() {
       <ThemeProvider theme={theme(mode)}>
         <GlobalStyle />
         <Switch>
-          <Route path="/" component={Home} exact></Route>
-          <Route path="/editor" component={Editor}></Route>
+          <Route path="/" component={Home} exact />
+          <Route path="/editor" component={Editor} />
+          <Route path="/discover" component={Discover} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>

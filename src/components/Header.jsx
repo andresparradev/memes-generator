@@ -12,6 +12,12 @@ const WrapperHeader = styled.header`
   border-bottom: 2px solid ${(props) => props.theme.colors.border};
 `;
 
+const Menu = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+`;
+
 function Header() {
   const { toggleMode } = useDarkMode();
 
@@ -20,9 +26,20 @@ function Header() {
       <Link to="/">
         <Logo>MemesGenerator</Logo>
       </Link>
-      <Button color="dark" onClick={toggleMode}>
-        Dark Mode
-      </Button>
+      <nav>
+        <Menu>
+          <li>
+            <Button color="dark" onClick={toggleMode}>
+              Dark Mode
+            </Button>
+          </li>
+          <li>
+            <Link to="/discover">
+              <Button>Discover</Button>
+            </Link>
+          </li>
+        </Menu>
+      </nav>
     </WrapperHeader>
   );
 }
