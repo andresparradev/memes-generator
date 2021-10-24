@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DarkModeContext } from "../context/darkModeContext";
 
 function useDarkMode() {
@@ -7,6 +7,10 @@ function useDarkMode() {
   const toggleMode = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
+
+  useEffect(() => {
+    localStorage.setItem("mode", mode);
+  }, [mode]);
 
   return {
     mode,
