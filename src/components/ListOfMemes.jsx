@@ -23,7 +23,7 @@ function ListOfMemes({ memes }) {
   return (
     <ListOfMemesStyled>
       {memes.map(({ id, url, name }) => (
-        <CardMeme id={id} url={url} name={name} />
+        <CardMeme key={id} id={id} url={url} name={name} />
       ))}
     </ListOfMemesStyled>
   );
