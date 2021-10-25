@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useEditor from "../hooks/useEditor";
 import Button from "./Button";
+import { FaCloudDownloadAlt } from "react-icons/fa";
 
 const WrapperEditionMeme = styled.div`
   border-left: 2px solid ${(props) => props.theme.colors.border};
@@ -123,7 +124,9 @@ function EditionMeme() {
         </EditionFont>
       </div>
 
-      <Button onClick={handleDownload}>Download</Button>
+      <Button onClick={handleDownload} icon={<FaCloudDownloadAlt size={18} />}>
+        Download
+      </Button>
     </WrapperEditionMeme>
   );
 }

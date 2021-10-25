@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import useEditor from "../hooks/useEditor";
+import { AiFillFileAdd } from "react-icons/ai";
 
 const MEMES = [
   { img: `/assets/fire.jpg`, id: 0 },
@@ -73,7 +74,7 @@ function SelectMeme({ openUploadModal }) {
   return (
     <WrapperSelectMeme>
       <AddImage onClick={openUploadModal}>
-        <img src="/assets/icon-add.png" alt="Logo add meme" title="Add image" />
+        <AiFillFileAdd size={40} cursor="pointer" />
       </AddImage>
       {memes.map((singleMeme) => (
         <div key={singleMeme.id}>
