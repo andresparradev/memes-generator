@@ -20,6 +20,6 @@
 - [x] Be able to move the text anywhere
 - [x] Be able to customize the text
 - [ ] Create test
-- [ ] Get memes images recommended
+- [x] Get memes images recommended
 - [ ] Add auth
 - [ ] Add list of last created memes
