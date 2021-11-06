@@ -8,7 +8,7 @@ const db = require("./config/db");
 const { register, login, getUser } = require("./routes/user");
 const { addMeme, getMyMemes } = require("./routes/memes");
 
-app.set("port", 9000);
+app.set("port", process.env.PORT || 9000);
 
 db();
 
