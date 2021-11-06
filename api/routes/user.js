@@ -64,7 +64,29 @@ async function login(req, res) {
   }
 }
 
+async function getUser(req, res) {
+  const { username } = req.params;
+
+  if (!username) {
+    return res.json({ text: "Field without complete" });
+  }
+
+  const user = await User.findOne({ username });
+
+  if (!user) return res.status(404).json({ text: "User no exist" });
+
+  res.status(200).json({
+    data: {
+      username: user.username,
+      created: user.created,
+      _id: user._id,
+      avatar: user.avatar || null,
+    },
+  });
+}
+
 module.exports = {
   register,
   login,
+  getUser,
 };

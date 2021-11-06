@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const auth = require("./middleware/auth");
 const db = require("./config/db");
-const { register, login } = require("./routes/user");
+const { register, login, getUser } = require("./routes/user");
 const { addMeme, getMyMemes } = require("./routes/memes");
 
 app.set("port", 9000);
@@ -16,6 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Hello"));
+
+app.get("/user/:username", getUser);
 app.post("/register", register);
 app.post("/login", login);
 

@@ -18,6 +18,9 @@ const SchemaUser = new Schema({
     type: Date,
     default: new Date(),
   },
+  avatar: {
+    type: String,
+  },
 });
 
 SchemaUser.statics.encryptPassword = async (password) => {
