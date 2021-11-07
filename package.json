@@ -19,6 +19,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0",
+    "eslint": "^8.2.0",
+    "eslint-plugin-react": "^7.26.1",
+    "prettier": "^2.4.1",
     "vite": "^2.6.4"
   }
 }

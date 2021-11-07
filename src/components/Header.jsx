@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "./Logo";
-import Button from "./Button";
-import useDarkMode from "../hooks/useDarkMode";
-import { useState } from "react";
 import { RiMenuFill, RiCloseFill, RiStore2Line } from "react-icons/ri";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+
+import Logo from "./Logo";
+import Button from "./Button";
+
+import useDarkMode from "../hooks/useDarkMode";
+import useUser from "../hooks/useUser";
+import UserAvatar from "./UserAvatar";
 
 const WrapperHeader = styled.header`
   padding: 1em 2em;
@@ -67,6 +71,7 @@ const IconClose = styled.span`
 function Header() {
   const { mode, toggleMode } = useDarkMode();
   const [isOpenNav, setIsOpenNav] = useState(false);
+  const { user, logout } = useUser();
 
   const handleOpenNav = () => {
     setIsOpenNav(true);
@@ -106,11 +111,27 @@ function Header() {
           </li>
           <li>
             <Link to="/discover">
-              <Button color="primary" icon={<RiStore2Line size={18} />}>
-                Discover
-              </Button>
+              <Button color="secondary" icon={<RiStore2Line size={18} />} />
             </Link>
           </li>
+
+          {user ? (
+            <UserAvatar user={user} logout={logout} />
+          ) : (
+            <>
+              <li>
+                <Link to="/login">
+                  <Button color="primary">Login</Button>
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/register">
+                  <Button color="primary">Register</Button>
+                </Link>
+              </li>
+            </>
+          )}
 
           <IconClose onClick={handleCloseNav}>
             <RiCloseFill size={24} />

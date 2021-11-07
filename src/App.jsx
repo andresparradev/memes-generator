@@ -6,6 +6,9 @@ import theme from "./theme";
 import Home from "./pages/Home";
 import Editor from "./pages/Editor";
 import Discover from "./pages/Discover";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -34,6 +37,9 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/editor" component={Editor} />
           <Route path="/discover" component={Discover} />
+          <Route path="/login" component={SignIn} />
+          <Route path="/register" component={SignUp} />
+          <Route path="/user/:username" component={Profile} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>

@@ -4,7 +4,8 @@
   <br />
   <br />
 
-  Create simple memes in a few seconds.
+Create simple memes in a few seconds.
+
 </div>
 
 ## Run 🚀
@@ -21,5 +22,5 @@
 - [x] Be able to customize the text
 - [ ] Create test
 - [x] Get memes images recommended
-- [ ] Add auth
+- [x] Add auth
 - [ ] Add list of last created memes

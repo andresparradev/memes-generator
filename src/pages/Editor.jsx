@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import Header from "../components/Header";
+import Layout from "../components/Layout";
 import EditorComponent from "../components/Editor";
 
 function Editor() {
@@ -9,8 +9,10 @@ function Editor() {
         <title>Editor | MemesGenerator</title>
         <meta name="description" content="Editor for make memes" />
       </Helmet>
-      <Header />
-      <EditorComponent />
+
+      <Layout>
+        <EditorComponent />
+      </Layout>
     </>
   );
 }
