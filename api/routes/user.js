@@ -64,7 +64,7 @@ async function login(req, res) {
   }
 }
 
-async function getUser(req, res) {
+async function getInfoUser(req, res) {
   const { username } = req.params;
 
   if (!username) {
@@ -88,5 +88,5 @@ async function getUser(req, res) {
 module.exports = {
   register,
   login,
-  getUser,
+  getInfoUser,
 };
