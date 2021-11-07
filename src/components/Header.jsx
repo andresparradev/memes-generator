@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { RiMenuFill, RiCloseFill, RiStore2Line } from "react-icons/ri";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { BiLogIn } from "react-icons/bi";
 
 import Logo from "./Logo";
 import Button from "./Button";
@@ -121,13 +122,17 @@ function Header() {
             <>
               <li>
                 <Link to="/login">
-                  <Button color="primary">Login</Button>
+                  <Button color="primary" icon={<BiLogIn />}>
+                    Login
+                  </Button>
                 </Link>
               </li>
 
               <li>
                 <Link to="/register">
-                  <Button color="primary">Register</Button>
+                  <Button color="primary" icon={<BiLogIn />}>
+                    Register
+                  </Button>
                 </Link>
               </li>
             </>

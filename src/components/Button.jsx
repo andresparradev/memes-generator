@@ -6,13 +6,13 @@ const WrapperButton = styled.button`
   padding: 0.6rem 2rem;
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors[props.color]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: ${(props) =>
     props.color === "light" || props.color === "gray"
       ? props.theme.colors.text
       : "#fff"};
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   ${(props) =>
     props.rounded &&
@@ -29,7 +29,7 @@ const WrapperButton = styled.button`
 `;
 
 const Text = styled.span`
-  margin-left: 0.5rem;
+  padding-left: 0.5rem;
 `;
 
 function Button(props, { color = "primary", rounded = false }) {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useHistory } from "react-router";
+import { BiLogIn } from "react-icons/bi";
 
 import Button from "../components/Button";
 import Layout from "../components/Layout";
@@ -58,7 +59,7 @@ function SignIn() {
             />
           </label>
 
-          <Button>Login</Button>
+          <Button icon={<BiLogIn />}>Login</Button>
         </Form>
       </Layout>
     </>

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { BiLogOut } from "react-icons/bi";
+
 import Avatar from "./Avatar";
 import Button from "./Button";
 
@@ -14,7 +16,7 @@ const ButtonStyled = styled(Button)`
 function UserAvatar({ user, logout }) {
   return (
     <UserAvatarStyled>
-      <ButtonStyled onClick={logout} color="gray">
+      <ButtonStyled onClick={logout} color="gray" icon={<BiLogOut />}>
         Logout
       </ButtonStyled>
       <Avatar username={user.username} />
