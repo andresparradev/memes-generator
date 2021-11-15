@@ -16,12 +16,12 @@ function addMeme(req, res) {
     });
 }
 
-function getMyMemes(req, res) {
-  const userId = req.user._id;
+function getMemesByUser(req, res) {
+  const { userId } = req.params;
 
   Meme.find({ userId })
     .then((memes) => {
-      res.json(memes);
+      res.json({ data: memes });
     })
     .catch((err) => {
       console.log(err);
@@ -31,5 +31,5 @@ function getMyMemes(req, res) {
 
 module.exports = {
   addMeme,
-  getMyMemes,
+  getMemesByUser,
 };
